@@ -18,7 +18,7 @@ And for Ubuntu, use:
 sudo apt-get install coinor-libclp1
 ```
 
-Add this line to your application’s Gemfile:
+Then add this line to your application’s Gemfile:
 
 ```ruby
 gem "clp"
