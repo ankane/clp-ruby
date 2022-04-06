@@ -13,11 +13,12 @@ module Clp
   end
   lib_name =
     if Gem.win_platform?
-      "clp.dll"
+      # TODO test
+      "Clp.dll"
     elsif RbConfig::CONFIG["host_os"] =~ /darwin/i
-      "libclp.dylib"
+      "libClp.dylib"
     else
-      "libclp.so"
+      "libClp.so.1"
     end
   self.ffi_lib = [lib_name]
 
