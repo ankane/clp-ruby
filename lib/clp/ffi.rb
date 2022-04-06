@@ -33,7 +33,7 @@ module Clp
     # load models
     extern "void Clp_loadProblem(Clp_Simplex *model, int numcols, int numrows, CoinBigIndex *start, int *index, double *value, double *collb, double *colub, double *obj, double *rowlb, double *rowub)"
     extern "int Clp_readMps(Clp_Simplex *model, char *filename, int keepNames, int ignoreErrors)"
-    if Gem::Version.new(FFI.Clp_Version) >= Gem::Version.new("1.17.2")
+    if Gem::Version.new(FFI.Clp_Version.to_s) >= Gem::Version.new("1.17.2")
       extern "int Clp_writeMps(Clp_Simplex *model, char *filename, int formatType, int numberAcross, double objSense)"
     end
 
