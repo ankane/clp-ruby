@@ -1,4 +1,4 @@
-## 0.1.1 (unreleased)
+## 0.1.1 (2022-04-06)
 
 - Fixed shared library detection on Linux
 - Fixed error with Clp < 1.17.2
