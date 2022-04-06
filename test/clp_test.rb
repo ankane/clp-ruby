@@ -19,9 +19,16 @@ class ClpTest < Minitest::Test
         row_upper: [1e30, 1e30, 1e30]
       )
 
-    # TODO improve
-    model.write_mps("/tmp/test.mps")
-    assert_equal File.binread("test/support/test.mps"), File.binread("/tmp/test.mps")
+    if Gem::Version.new(Clp.lib_version) >= Gem::Version.new("1.17.2")
+      # TODO improve
+      model.write_mps("/tmp/test.mps")
+      assert_equal File.binread("test/support/test.mps"), File.binread("/tmp/test.mps")
+    else
+      error = assert_raises(Clp::Error) do
+        model.write_mps("/tmp/test.mps")
+      end
+      assert_equal "This feature requires Clp 1.17.2+", error.message
+    end
 
     res = model.solve
     assert_equal :optimal, res[:status]

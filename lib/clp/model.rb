@@ -28,6 +28,9 @@ module Clp
     end
 
     def write_mps(filename)
+      unless FFI.respond_to?(:Clp_writeMps)
+        raise Error, "This feature requires Clp 1.17.2+"
+      end
       check_status FFI.Clp_writeMps(model, filename, 0, 1, 0)
     end
 
