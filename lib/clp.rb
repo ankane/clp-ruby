@@ -14,13 +14,15 @@ module Clp
   lib_name =
     if Gem.win_platform?
       # TODO test
-      "Clp.dll"
+      ["Clp.dll"]
     elsif RbConfig::CONFIG["host_os"] =~ /darwin/i
-      "libClp.dylib"
+      ["libClp.dylib"]
     else
-      "libClp.so.1"
+      # coinor-libclp-dev has libClp.so
+      # coinor-libclp1 has libClp.so.1
+      ["libClp.so", "libClp.so.1"]
     end
-  self.ffi_lib = [lib_name]
+  self.ffi_lib = lib_name
 
   # friendlier error message
   autoload :FFI, "clp/ffi"
