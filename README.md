@@ -63,6 +63,14 @@ Read a problem from an MPS file
 model = Clp.read_mps("hello.mps")
 ```
 
+## Reference
+
+Set log level [unreleased]
+
+```ruby
+prob.solve(log_level: 4)
+```
+
 ## History
 
 View the [changelog](https://github.com/ankane/clp-ruby/blob/master/CHANGELOG.md)
