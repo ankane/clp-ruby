@@ -60,6 +60,7 @@ module Clp
     extern "double * Clp_getElements(Clp_Simplex *model)"
     extern "double Clp_objectiveValue(Clp_Simplex *model)"
     extern "void Clp_setLogLevel(Clp_Simplex *model, int value)"
+    extern "int Clp_logLevel(Clp_Simplex *model)"
 
     # solve
     extern "int Clp_initialSolve(Clp_Simplex *model)"

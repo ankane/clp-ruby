@@ -92,14 +92,19 @@ module Clp
     end
 
     def with_options(log_level:, time_limit:)
-      FFI.Clp_setLogLevel(model, log_level) if log_level
+      if log_level
+        previous_log_level = FFI.Clp_logLevel(model)
+        FFI.Clp_setLogLevel(model, log_level)
+      end
+
       if time_limit
         previous_time_limit = FFI.Clp_maximumSeconds(model)
         FFI.Clp_setMaximumSeconds(model, time_limit)
       end
+
       yield
     ensure
-      FFI.Clp_setLogLevel(model, 0) if log_level
+      FFI.Clp_setLogLevel(model, previous_log_level) if previous_log_level
       FFI.Clp_setMaximumSeconds(model, previous_time_limit) if previous_time_limit
     end
   end
