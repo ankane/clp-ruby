@@ -65,7 +65,7 @@ model = Clp.read_mps("hello.mps")
 
 ## Reference
 
-Set log level [unreleased]
+Set the log level [unreleased]
 
 ```ruby
 prob.solve(log_level: 4)
