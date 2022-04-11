@@ -1,3 +1,7 @@
+## 0.1.2 (unreleased)
+
+- Added `log_level` option to `solve` method
+
 ## 0.1.1 (2022-04-06)
 
 - Fixed shared library detection on Linux
