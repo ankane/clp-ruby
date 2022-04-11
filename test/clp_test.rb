@@ -49,4 +49,10 @@ class ClpTest < Minitest::Test
     assert_elements_in_delta [0, 2.4, 0.4], res[:dual_row]
     assert_elements_in_delta [0, 0], res[:dual_col]
   end
+
+  def test_time_limit
+    model = Clp.read_mps("test/support/test.mps")
+    res = model.solve(time_limit: 0.000001)
+    assert_equal :stopped, res[:status]
+  end
 end

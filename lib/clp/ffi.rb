@@ -43,6 +43,8 @@ module Clp
     extern "int Clp_numberColumns(Clp_Simplex *model)"
     extern "double Clp_objectiveOffset(Clp_Simplex *model)"
     extern "void Clp_setObjectiveOffset(Clp_Simplex *model, double value)"
+    extern "double Clp_maximumSeconds(Clp_Simplex *model)"
+    extern "void Clp_setMaximumSeconds(Clp_Simplex *model, double value)"
     extern "int Clp_status(Clp_Simplex *model)"
     extern "double Clp_getObjSense(Clp_Simplex *model)"
     extern "void Clp_setObjSense(Clp_Simplex *model, double objsen)"

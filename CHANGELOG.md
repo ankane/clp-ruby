@@ -1,6 +1,6 @@
 ## 0.1.2 (unreleased)
 
-- Added `log_level` option to `solve` method
+- Added `log_level` and `time_limit` options to `solve` method
 
 ## 0.1.1 (2022-04-06)
 

@@ -71,6 +71,12 @@ Set the log level [unreleased]
 model.solve(log_level: 4)
 ```
 
+Set the time limit in seconds [unreleased]
+
+```ruby
+model.solve(time_limit: 30)
+```
+
 ## History
 
 View the [changelog](https://github.com/ankane/clp-ruby/blob/master/CHANGELOG.md)

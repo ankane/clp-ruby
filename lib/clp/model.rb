@@ -34,9 +34,10 @@ module Clp
       check_status FFI.Clp_writeMps(model, filename, 0, 1, 0)
     end
 
-    def solve(log_level: nil)
-      with_options(log_level: log_level) do
-        check_status FFI.Clp_initialSolve(model)
+    def solve(log_level: nil, time_limit: nil)
+      with_options(log_level: log_level, time_limit: time_limit) do
+        # do not check status
+        FFI.Clp_initialSolve(model)
       end
 
       num_rows = FFI.Clp_numberRows(model)
@@ -65,7 +66,7 @@ module Clp
 
     def check_status(status)
       if status != 0
-        raise Error, "Bad status"
+        # raise Error, "Bad status: #{status}"
       end
     end
 
@@ -90,11 +91,16 @@ module Clp
       ptr[0, size * Fiddle::SIZEOF_DOUBLE].unpack("d#{size}")
     end
 
-    def with_options(log_level:)
+    def with_options(log_level:, time_limit:)
       FFI.Clp_setLogLevel(model, log_level) if log_level
+      if time_limit
+        previous_time_limit = FFI.Clp_maximumSeconds(model)
+        FFI.Clp_setMaximumSeconds(model, time_limit)
+      end
       yield
     ensure
       FFI.Clp_setLogLevel(model, 0) if log_level
+      FFI.Clp_setMaximumSeconds(model, previous_time_limit) if previous_time_limit
     end
   end
 end
