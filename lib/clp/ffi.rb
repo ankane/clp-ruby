@@ -14,6 +14,7 @@ module Clp
 
     OBJ_SENSE = {
       minimize: 1,
+      ignore: 0,
       maximize: -1
     }
 
