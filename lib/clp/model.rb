@@ -66,7 +66,7 @@ module Clp
 
     def check_status(status)
       if status != 0
-        # raise Error, "Bad status: #{status}"
+        raise Error, "Bad status: #{status}"
       end
     end
 
