@@ -1,4 +1,4 @@
-## 0.1.2 (unreleased)
+## 0.1.2 (2022-04-14)
 
 - Added `log_level` and `time_limit` options to `solve` method
 

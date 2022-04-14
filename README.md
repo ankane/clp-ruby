@@ -65,13 +65,13 @@ model = Clp.read_mps("hello.mps")
 
 ## Reference
 
-Set the log level [unreleased]
+Set the log level
 
 ```ruby
 model.solve(log_level: 4)
 ```
 
-Set the time limit in seconds [unreleased]
+Set the time limit in seconds
 
 ```ruby
 model.solve(time_limit: 30)
