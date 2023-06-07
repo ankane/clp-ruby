@@ -2,7 +2,7 @@ module Clp
   class Model
     def initialize
       @model = FFI.Clp_newModel
-      ObjectSpace.define_finalizer(self, self.class.finalize(@model))
+      ObjectSpace.define_finalizer(@model, self.class.finalize(@model.to_i))
 
       FFI.Clp_setLogLevel(model, 0)
     end
@@ -53,9 +53,9 @@ module Clp
       }
     end
 
-    def self.finalize(model)
+    def self.finalize(addr)
       # must use proc instead of stabby lambda
-      proc { FFI.Clp_deleteModel(model) }
+      proc { FFI.Clp_deleteModel(addr) }
     end
 
     private

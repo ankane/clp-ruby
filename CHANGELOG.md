@@ -1,6 +1,7 @@
 ## 0.1.3 (unreleased)
 
 - Improved support for Mac ARM
+- Fixed error with `dup` and `clone`
 
 ## 0.1.2 (2022-04-14)
 

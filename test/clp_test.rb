@@ -55,4 +55,10 @@ class ClpTest < Minitest::Test
     res = model.solve(time_limit: 0.000001)
     assert_equal :stopped, res[:status]
   end
+
+  def test_copy
+    model = Clp.read_mps("test/support/test.mps")
+    model.dup
+    model.clone
+  end
 end
