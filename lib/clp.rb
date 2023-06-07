@@ -2,8 +2,8 @@
 require "fiddle/import"
 
 # modules
-require "clp/model"
-require "clp/version"
+require_relative "clp/model"
+require_relative "clp/version"
 
 module Clp
   class Error < StandardError; end
