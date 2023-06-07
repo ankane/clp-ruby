@@ -2,7 +2,7 @@ module Clp
   class Model
     def initialize
       @model = FFI.Clp_newModel
-      ObjectSpace.define_finalizer(@model, self.class.finalize(@model.to_i))
+      @model.free = FFI["Clp_deleteModel"]
 
       FFI.Clp_setLogLevel(model, 0)
     end
@@ -51,11 +51,6 @@ module Clp
         dual_row: read_double_array(FFI.Clp_dualRowSolution(model), num_rows),
         dual_col: read_double_array(FFI.Clp_dualColumnSolution(model), num_cols)
       }
-    end
-
-    def self.finalize(addr)
-      # must use proc instead of stabby lambda
-      proc { FFI.Clp_deleteModel(addr) }
     end
 
     private
