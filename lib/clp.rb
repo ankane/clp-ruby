@@ -19,7 +19,7 @@ module Clp
       if RbConfig::CONFIG["host_cpu"] =~ /arm|aarch64/i
         ["libClp.dylib", "/opt/homebrew/lib/libClp.dylib"]
       else
-        ["libClp.dylib"]
+        ["libClp.dylib", "/usr/local/lib/libClp.dylib"]
       end
     else
       # coinor-libclp-dev has libClp.so
