@@ -24,14 +24,14 @@ module Clp
     end
 
     def read_mps(filename)
-      check_status FFI.Clp_readMps(model, filename, 0, 0)
+      check_status FFI.Clp_readMps(model, +filename, 0, 0)
     end
 
     def write_mps(filename)
       unless FFI.respond_to?(:Clp_writeMps)
         raise Error, "This feature requires Clp 1.17.2+"
       end
-      check_status FFI.Clp_writeMps(model, filename, 0, 1, 0)
+      check_status FFI.Clp_writeMps(model, +filename, 0, 1, 0)
     end
 
     def solve(log_level: nil, time_limit: nil)
