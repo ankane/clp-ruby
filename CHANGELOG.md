@@ -1,3 +1,7 @@
+## 0.3.0 (unreleased)
+
+- Dropped support for Ruby < 3.3
+
 ## 0.2.1 (2024-12-29)
 
 - Fixed shared library detection on Mac x86-64
