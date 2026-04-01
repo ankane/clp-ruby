@@ -53,7 +53,7 @@ Solve
 model.solve
 ```
 
-Write the problem to an MPS file (requires Clp 1.17.2+)
+Write the problem to an MPS file
 
 ```ruby
 model.write_mps("hello.mps")
